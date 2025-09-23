@@ -10,6 +10,7 @@ function Player:init()
     self.prop = {
         player = true,
     }
+    self.col_prop = {}
 end
 
 function Player:draw()
