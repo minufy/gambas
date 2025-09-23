@@ -1,11 +1,11 @@
 local Player = Object:new()
 
-function Player:init()
+function Player:init(x, y)
     self.w = Img.player:getWidth()
     self.h = Img.player:getHeight()
 
-    self.x = 0
-    self.y = 0
+    self.x = x
+    self.y = y
     
     self.prop = {
         player = true,
