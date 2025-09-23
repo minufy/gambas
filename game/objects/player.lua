@@ -18,6 +18,11 @@ function Player:draw()
 end
 
 function Player:update(dt)
+    local ix = 0
+    if Input.right.down then
+        ix = ix+1
+    end
+    self.vx = ix*2*dt
 end
 
 return Player

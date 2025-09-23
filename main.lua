@@ -12,7 +12,10 @@ function love.load()
 end
 
 function love.update(dt)
+    dt = math.min(1.5, dt*60)
+    UpdateInputs()
     SM:update(dt)
+    ResetWheelInput()
 end
 
 function love.draw()

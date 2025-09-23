@@ -1,8 +1,6 @@
 SM = {}
 
 function SM:init(name)
-    print(name)
-    self.scene = nil
     self:load_scene(name)
 end
 
