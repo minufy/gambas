@@ -10,6 +10,7 @@ function Player:init()
     self.prop = {
         player = true,
     }
+    self.col_prop = {}
 end
 
 function Player:draw()
@@ -17,6 +18,13 @@ function Player:draw()
 end
 
 function Player:update(dt)
+    Utils:dist(self, 100, "spike")
+
+    local ix = 0
+    if Input.right.down then
+        ix = ix+1
+    end
+    self.vx = ix*2*dt
 end
 
 return Player
