@@ -28,22 +28,26 @@ local function col(a, objects)
 end
 
 local function physics_update(object, objects)
-    object.x = object.x+object.vx
-    local x_col = col(object, objects)
-    if x_col then
-        if object.vx > 0 then
-            object.x = x_col.x-object.w
-        else
-            object.x = x_col.x+x_col.w
+    if object.vx then
+        object.x = object.x+object.vx
+        local x_col = col(object, objects)
+        if x_col then
+            if object.vx > 0 then
+                object.x = x_col.x-object.w
+            else
+                object.x = x_col.x+x_col.w
+            end
         end
     end
-    object.y = object.y+object.vy
-    local y_col = col(object, objects)
-    if y_col then
-        if object.vy > 0 then
-            object.y = y_col.y-object.h
-        else
-            object.y = y_col.y+y_col.h
+    if object.vy then
+        object.y = object.y+object.vy
+        local y_col = col(object, objects)
+        if y_col then
+            if object.vy > 0 then
+                object.y = y_col.y-object.h
+            else
+                object.y = y_col.y+y_col.h
+            end
         end
     end
 end
