@@ -1,5 +1,13 @@
 Utils = {}
 
+local function dist(a, b)
+    local ax = a.x+a.w/2
+    local ay = a.y+a.h/2
+    local bx = b.x+b.w/2
+    local by = b.y+b.h/2
+    return math.sqrt((ax-bx)^2+(ay-by)^2)
+end
+
 local function check_col(a, b)
     return a.x < b.x+b.w and
             b.x < a.x+a.w and
@@ -73,5 +81,14 @@ end
 function Utils:draw_objects(objects)
     for i, object in pairs(objects) do
         object:draw()
+    end
+end
+
+function Utils:dist(a, r, prop)
+    local objects = SM:current().objects
+    for _, b in ipairs(objects) do
+        if b.prop[prop] ~= nil and dist(a, b) < r then
+            return b
+        end
     end
 end
