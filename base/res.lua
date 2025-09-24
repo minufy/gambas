@@ -1,8 +1,8 @@
-local resoultion = require("data.resolution")
+local config = require("data.config").res
 
 Res = {}
-Res.w = resoultion.w
-Res.h = resoultion.h
+Res.w = config.w
+Res.h = config.h
 Res.shift_x = 0
 Res.shift_y = 0
 

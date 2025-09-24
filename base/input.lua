@@ -1,4 +1,4 @@
-local keybinds = require("data.keybinds")
+local config = require("data.config").input
 
 Input = {}
 
@@ -14,7 +14,7 @@ end
 
 Input.mb = {new(), new(), new()}
 Input.wheel = new()
-for k, v in pairs(keybinds) do
+for k, v in pairs(config) do
     Input[k] = new(v)
 end
 

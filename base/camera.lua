@@ -1,3 +1,5 @@
+local config = require("data.config").camera
+
 Camera = {}
 Camera.offset_x = 0
 Camera.offset_y = 0
@@ -5,10 +7,10 @@ Camera.target_x = 0
 Camera.target_y = 0
 Camera.x = 0
 Camera.y = 0
-Camera.damp_x = 0.1
-Camera.damp_y = 0.1
+Camera.damp_x = config.damp
+Camera.damp_y = config.damp
 Camera.shake = {}
-Camera.shake.damp = 0.1
+Camera.shake.damp = config.damp
 Camera.shake.x = 0
 Camera.shake.y = 0
 Camera.shake.duration = 0
