@@ -76,10 +76,10 @@ local function physics_update(object, objects)
     end
 end
 
-function Utils:add(objects, object, ...)
+function Utils:add(object, ...)
     local o = object:new()
     o:init(...)
-    table.insert(objects, o)
+    table.insert(SM:current().objects, o)
     return o
 end
 
