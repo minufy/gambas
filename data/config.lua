@@ -13,4 +13,8 @@ config.camera = {
     damp = 0.1
 }
 
+config.log = {
+    font = Font
+}
+
 return config
