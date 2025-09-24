@@ -25,6 +25,7 @@ function love.update(dt)
     Camera:update(dt)
     SM:update(dt)
     Log:update(dt)
+    Timer:update(dt)
     ResetWheelInput()
 end
 
