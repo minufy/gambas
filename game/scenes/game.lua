@@ -8,7 +8,9 @@ function Game:init()
 end
 
 function Game:draw()
+    Camera:start()
     Utils:draw_objects(self.objects)
+    Camera:stop()
 end
 
 function Game:update(dt)

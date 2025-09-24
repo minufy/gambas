@@ -22,6 +22,7 @@ end
 function love.update(dt)
     dt = math.min(1.5, dt*60)
     UpdateInputs()
+    Camera:update(dt)
     SM:update(dt)
     Log:update(dt)
     ResetWheelInput()
