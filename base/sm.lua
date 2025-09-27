@@ -8,9 +8,9 @@ function SM:current()
     return self.scene
 end
 
-function SM:load_scene(name)
+function SM:load_scene(name, ...)
     self.scene = require("game.scenes."..name):new()
-    self.scene:init()
+    self.scene:init(...)
 end
 
 function SM:draw()
