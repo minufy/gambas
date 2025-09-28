@@ -26,8 +26,8 @@ function Camera:offset(x, y)
 end
 
 function Camera:snap_back()
-    self.x = self.offset_x-self.target_x
-    self.y = self.offset_y-self.target_y
+    self.x = self.offset_x+self.target_x
+    self.y = self.offset_y+self.target_y
 end
 
 function Camera:set_shake(dur)
