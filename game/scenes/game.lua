@@ -3,18 +3,18 @@ local Game = Object:new()
 local Player = require("game.objects.player")
 
 function Game:init()
-    self.objects = {}
-    Utils:add(Player, Res.w/2, Res.h/2)
+    self.objects = NewLayer()
+    self.objects:add(Player, Res.w/2, Res.h/2)
 end
 
 function Game:draw()
     Camera:start()
-    Utils:draw_objects(self.objects)
+    self.objects:draw()
     Camera:stop()
 end
 
 function Game:update(dt)
-    Utils:update_objects(dt, self.objects)
+    self.objects:update(dt)
 end
 
 return Game

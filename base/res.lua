@@ -25,11 +25,11 @@ function Res:after()
 end
 
 function Res:getX()
-    return (love.mouse.getX()-self.shift_x)/self.zoom-Camera.x
+    return (love.mouse.getX()-self.shift_x)/self.zoom
 end
 
 function Res:getY()
-    return (love.mouse.getY()-self.shift_y)/self.zoom-Camera.y
+    return (love.mouse.getY()-self.shift_y)/self.zoom
 end
 
 function Res:resize(w, h)

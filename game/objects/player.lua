@@ -18,7 +18,7 @@ function Player:draw()
 end
 
 function Player:update(dt)
-    Utils:dist(self, 100, "spike")
+    self.layer:dist(self, 100, "spike")
 
     local ix = 0
     if Input.right.down then
