@@ -72,7 +72,7 @@ end
 
 function Layer:update(dt)
     for i = #self.objects, 1, -1 do
-        if self.objects[i].prop.remove then
+        if self.objects[i].prop and self.objects[i].prop.remove then
             table.remove(self.objects, i)
         else
             self.objects[i]:update(dt)
