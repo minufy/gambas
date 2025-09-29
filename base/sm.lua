@@ -4,13 +4,8 @@ function SM:init(name)
     self:load_scene(name)
 end
 
-function SM:current()
-    return self.scene
-end
-
 function SM:load_scene(name, ...)
-    self.scene = require("game.scenes."..name):new()
-    self.scene:init(...)
+    self.scene = require("game.scenes."..name)(...)
 end
 
 function SM:draw()

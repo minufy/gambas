@@ -1,6 +1,6 @@
-local Layer = Object:new()
+Layer = Object:extend()
 
-function Layer:init()
+function Layer:new()
     self.objects = {}
 end
 
@@ -64,12 +64,10 @@ function Layer:physics_update(object, objects)
     end
 end
 
-function Layer:add(object, ...)
-    local o = object:new()
-    o:init(...)
-    o.layer = self
-    table.insert(self.objects, o)
-    return o
+function Layer:add(object)
+    table.insert(self.objects, object)
+    object.layer = self
+    return object
 end
 
 function Layer:update(dt)
@@ -96,10 +94,4 @@ function Layer:dist(a, r, prop)
             return b
         end
     end
-end
-
-function NewLayer()
-    local l = Layer:new()
-    l:init()
-    return l
 end

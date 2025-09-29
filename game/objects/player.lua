@@ -1,6 +1,6 @@
-local Player = Object:new()
+local Player = Object:extend()
 
-function Player:init(x, y)
+function Player:new(x, y)
     self.w = Img.player:getWidth()
     self.h = Img.player:getHeight()
 

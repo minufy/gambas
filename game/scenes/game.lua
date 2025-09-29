@@ -1,10 +1,10 @@
-local Game = Object:new()
+local Game = Object:extend()
 
 local Player = require("game.objects.player")
 
-function Game:init()
-    self.objects = NewLayer()
-    self.objects:add(Player, Res.w/2, Res.h/2)
+function Game:new()
+    self.objects = Layer()
+    self.objects:add(Player(Res.w/2, Res.h/2))
 end
 
 function Game:draw()

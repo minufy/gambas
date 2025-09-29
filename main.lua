@@ -1,4 +1,4 @@
-Object = require("base.object")
+Object = require("modules.classic")
 
 function love.load()
     love.graphics.setDefaultFilter("nearest", "nearest")
