@@ -82,14 +82,13 @@ function Layer:update(dt)
 end
 
 function Layer:draw()
-    for i, object in pairs(self.objects) do
+    for i, object in ipairs(self.objects) do
         object:draw()
     end
 end
 
 function Layer:dist(a, r, prop)
-    local objects = a.layer.objects
-    for _, b in ipairs(objects) do
+    for _, b in ipairs(self.objects) do
         if b.prop[prop] ~= nil and self:check_dist(a, b) < r then
             return b
         end
