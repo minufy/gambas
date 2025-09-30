@@ -28,8 +28,8 @@ function Layer:check_dist(a, b)
     return math.sqrt((ax-bx)^2+(ay-by)^2)
 end
 
-function Layer:col(a, objects)
-    for i, b in ipairs(objects) do
+function Layer:col(a)
+    for i, b in ipairs(self.objects) do
         if self:check_filter(a, b) then
             if a ~= b and self:check_col(a, b) then
                 return b
@@ -39,10 +39,10 @@ function Layer:col(a, objects)
     return nil
 end
 
-function Layer:physics_update(object, objects)
+function Layer:physics_update(object)
     if object.vx then
         object.x = object.x+object.vx
-        local x_col = self:col(object, objects)
+        local x_col = self:col(object)
         if x_col then
             if object.vx > 0 then
                 object.x = x_col.x-object.w
@@ -53,7 +53,7 @@ function Layer:physics_update(object, objects)
     end
     if object.vy then
         object.y = object.y+object.vy
-        local y_col = self:col(object, objects)
+        local y_col = self:col(object)
         if y_col then
             if object.vy > 0 then
                 object.y = y_col.y-object.h
@@ -76,7 +76,7 @@ function Layer:update(dt)
             table.remove(self.objects, i)
         else
             self.objects[i]:update(dt)
-            self:physics_update(self.objects[i], self.objects)
+            self:physics_update(self.objects[i])
         end
     end
 end
