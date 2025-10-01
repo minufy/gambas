@@ -24,6 +24,9 @@ function Player:update(dt)
     if Input.right.down then
         ix = ix+1
     end
+    if Input.right.pressed then
+        Log:log(self.x, self.y)
+    end
     self.vx = ix*2*dt
 end
 

@@ -3,8 +3,10 @@ local config = require("data.config").res
 Res = {}
 Res.w = config.w
 Res.h = config.h
-Res.shift_x = 0
-Res.shift_y = 0
+Res.shift = {
+    x = 0,
+    y = 0
+}
 
 function Res:init()
     local w, h = love.graphics.getDimensions()
@@ -21,26 +23,26 @@ end
 
 function Res:after()
     love.graphics.setCanvas()
-    love.graphics.draw(self.canvas, self.shift_x, self.shift_y, 0, self.zoom, self.zoom)
+    love.graphics.draw(self.canvas, self.shift.x, self.shift.y, 0, self.zoom, self.zoom)
 end
 
 function Res:getX()
-    return (love.mouse.getX()-self.shift_x)/self.zoom
+    return (love.mouse.getX()-self.shift.x)/self.zoom
 end
 
 function Res:getY()
-    return (love.mouse.getY()-self.shift_y)/self.zoom
+    return (love.mouse.getY()-self.shift.y)/self.zoom
 end
 
 function Res:resize(w, h)
     if self.w-w > self.h-h then
         self.zoom = w/self.w
-        self.shift_x = 0
-        self.shift_y = h/2-Res.h*Res.zoom/2
+        self.shift.x = 0
+        self.shift.y = h/2-Res.h*Res.zoom/2
     else
         self.zoom = h/self.h
-        self.shift_x = w/2-Res.w*Res.zoom/2
-        self.shift_y = 0
+        self.shift.x = w/2-Res.w*Res.zoom/2
+        self.shift.y = 0
     end
 end
 
