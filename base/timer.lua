@@ -10,7 +10,7 @@ function Timer:add(time, action)
 end
 
 function Timer:update(dt)
-    for i=#self.timers, 1, -1 do
+    for i = #self.timers, 1, -1 do
         local item = self.timers[i]
         item.timer = love.timer.getTime()
         if item.timer >= item.time then

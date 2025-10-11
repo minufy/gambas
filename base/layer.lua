@@ -12,8 +12,8 @@ function Layer:check_col(a, b)
 end
 
 function Layer:check_filter(a, b)
-    for k, v in pairs(a.col_prop) do
-        if b.prop[k] ~= nil then
+    for k, v in pairs(a.col_tags) do
+        if b.tags[k] ~= nil then
             return true
         end
     end
@@ -72,7 +72,7 @@ end
 
 function Layer:update(dt)
     for i = #self.objects, 1, -1 do
-        if self.objects[i].prop and self.objects[i].prop.remove then
+        if self.objects[i].tags and self.objects[i].tags.remove then
             table.remove(self.objects, i)
         else
             self.objects[i]:update(dt)
@@ -87,9 +87,9 @@ function Layer:draw()
     end
 end
 
-function Layer:dist(a, r, prop)
+function Layer:dist(a, r, tags)
     for _, b in ipairs(self.objects) do
-        if b.prop[prop] ~= nil and self:check_dist(a, b) < r then
+        if b.tags[tags] ~= nil and self:check_dist(a, b) < r then
             return b
         end
     end

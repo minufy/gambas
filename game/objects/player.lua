@@ -7,10 +7,10 @@ function Player:new(x, y)
     self.x = x
     self.y = y
     
-    self.prop = {
+    self.tags = {
         player = true,
     }
-    self.col_prop = {}
+    self.col_tags = {}
 end
 
 function Player:draw()

@@ -3,10 +3,7 @@ local config = require("data.config").res
 Res = {}
 Res.w = config.w
 Res.h = config.h
-Res.shift = {
-    x = 0,
-    y = 0
-}
+Res.shift = {x = 0, y = 0}
 
 function Res:init()
     local w, h = love.graphics.getDimensions()
